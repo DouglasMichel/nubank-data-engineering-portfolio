@@ -1,0 +1,5 @@
+relationship b29d97a9-e9c6-47cb-b24f-9130601e27b8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 2025-07-24.Data
+	toColumn: LocalDateTable_9021ea6c-9ccd-493f-8a67-fd8bb2461184.Date
+
