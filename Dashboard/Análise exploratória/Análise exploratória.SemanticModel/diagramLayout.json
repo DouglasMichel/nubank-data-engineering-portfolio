@@ -10,13 +10,38 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 284,
+            "y": 74
           },
-          "nodeIndex": "2025-07-24",
-          "nodeLineageTag": "a6a8b610-66cd-4491-8782-c51af42d153d",
+          "nodeIndex": "credito",
+          "nodeLineageTag": "ed190f0a-4b3b-4d68-9cac-2f14a953e9fe",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 62
+          },
+          "nodeIndex": "movimentacoes",
           "size": {
             "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 0
+          },
+          "nodeIndex": "calendario",
+          "nodeLineageTag": "43d75491-1e4a-42e4-853b-8b699b520ffb",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0

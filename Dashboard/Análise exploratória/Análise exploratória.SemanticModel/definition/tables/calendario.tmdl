@@ -1,0 +1,143 @@
+table calendario
+	lineageTag: 43d75491-1e4a-42e4-853b-8b699b520ffb
+
+	column DATA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f1dbd488-2ecd-465d-9f89-84018a5f8832
+		summarizeBy: none
+		sourceColumn: DATA
+
+		variation Variation
+			isDefault
+			relationship: 1a011daa-c6ac-4c26-9048-d4bf93354dc9
+			defaultHierarchy: LocalDateTable_7371e2a2-b5af-4a94-9afc-a87e7eeebe7b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ANO
+		dataType: int64
+		formatString: 0
+		lineageTag: c5e1bf6a-b8b1-4f0e-915a-73babe9285bc
+		summarizeBy: sum
+		sourceColumn: ANO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRIMESTRE
+		dataType: string
+		lineageTag: e4e8ad12-d79a-4a1b-af6b-178c39a22f8a
+		summarizeBy: none
+		sourceColumn: TRIMESTRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_SEMANA
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e316e5d-50c2-4ad8-8147-e6f9997055bd
+		summarizeBy: sum
+		sourceColumn: NUMERO_SEMANA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_MES
+		dataType: int64
+		formatString: 0
+		lineageTag: 5105b529-fdc2-40ef-97dc-e44e268c9d7e
+		summarizeBy: sum
+		sourceColumn: NUMERO_MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_MES
+		dataType: int64
+		formatString: 0
+		lineageTag: 080f3069-5ab2-4869-9876-15bf7f99a13b
+		summarizeBy: sum
+		sourceColumn: ANO_MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES
+		dataType: string
+		lineageTag: 3141aa6b-b64d-48dd-a374-e84100e0ccd8
+		summarizeBy: none
+		sourceColumn: MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIA_DA_SEMANA
+		dataType: string
+		lineageTag: d7106efd-736f-4440-a9e1-e70513a01a88
+		summarizeBy: none
+		sourceColumn: DIA_DA_SEMANA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_ANO
+		dataType: string
+		lineageTag: b41f05e9-18fc-49b5-b51f-f37ec30e2f8e
+		summarizeBy: none
+		sourceColumn: MES_ANO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_COM_NUMERO
+		dataType: string
+		lineageTag: 7c2bbd57-59f8-49c5-9412-f83efd201781
+		summarizeBy: none
+		sourceColumn: MES_COM_NUMERO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calendario = m
+		mode: import
+		source =
+				let
+				DI =  #date(2022, 1, 1),
+				DF = #date(2025, 12, 31),
+				//Contar número de dias entre a data de início e fim
+				Dias = Duration.Days(DF - DI) +1,
+				//Criando uma lista de datas
+				Datas = List.Dates(DI, Dias,
+				#duration(1,0,0,0)),
+				//Converter Lista em Tabela
+				ListaparaTabela = Table.FromList(Datas,
+				Splitter.SplitByNothing(), {"DATA"}, null, ExtraValues.Error ),
+				AlterarTipo = Table.TransformColumnTypes(ListaparaTabela,{{"DATA", type date}}),
+				//Criando Colunas adicionais
+				//Coluna Ano
+				Ano = Table.AddColumn(AlterarTipo, "ANO",
+				each Date.Year([DATA]), Int64.Type),
+				//Criando Trimestre
+				Trimestre = Table.AddColumn(Ano , "TRIMESTRE",
+				each "Trim " & Number.ToText(Date.QuarterOfYear([DATA])), type text),
+				//Número da Semana
+				NumeroSemana = Table.AddColumn(Trimestre , "NUMERO_SEMANA",
+				each Date.WeekOfYear([DATA]), Int64.Type),
+				//Numero Mês
+				MesNumero = Table.AddColumn(NumeroSemana, "NUMERO_MES",
+				each Date.Month([DATA]), Int64.Type),
+				DataINT = Table.AddColumn(MesNumero, "ANO_MES", each [ANO]*100 + [NUMERO_MES], Int64.Type),
+				//Nome do Mes
+				NomeMes = Table.AddColumn(DataINT , "MES",
+				each Date.ToText([DATA],"MMM"), type text),
+				MesMaiusculo = Table.TransformColumns(NomeMes,{{"MES", Text.Proper, type text}}),
+				//Dia da Semana
+				DiaDaSemana = Table.AddColumn(MesMaiusculo , "DIA_DA_SEMANA",
+				each Date.ToText([DATA],"dddd"), type text),
+				//Mês-Ano
+				#"MesAno" = Table.AddColumn(DiaDaSemana, "MES_ANO", each Text.Combine({Text.From([NUMERO_MES], "pt-BR"), Text.From([ANO], "pt-BR")}, "-"), type text),
+				//NUMERO MES + NOME MES
+				NUM_MES_NOM_MES = Table.AddColumn(#"MesAno", "MES_COM_NUMERO", each Text.Combine({Text.From([NUMERO_MES], "pt-BR"), [MES]}, "-"), type text)
+				
+				in
+				NUM_MES_NOM_MES
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
