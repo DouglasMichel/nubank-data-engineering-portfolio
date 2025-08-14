@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":\"5.62\"}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.65\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":\"5.62\"}},\"activeSectionIndex\":2,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -20,38 +20,170 @@
   "sections": [
     {
       "config": "{}",
-      "displayName": "Page 1",
+      "displayName": "Ranking movimentacao",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "135bc5030514e0540709",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"033a3c037230d100c462\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.605521030503024,\"y\":209.94924538099468,\"z\":0,\"width\":1270.6732106065429,\"height\":510.4648319067321,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"Sum(movimentacoes.Valor)\",\"active\":true}],\"Y\":[{\"queryRef\":\"movimentacoes.04_contagem_movimentacoes\"}],\"Size\":[{\"queryRef\":\"movimentacoes.05_valor_medio_por_desc\"}],\"Series\":[{\"queryRef\":\"calendario.DATA.Variation.Date Hierarchy.Month\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"movimentacoes\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"calendario\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"04_contagem_movimentacoes\"},\"Name\":\"movimentacoes.04_contagem_movimentacoes\",\"NativeReferenceName\":\"Total de movimentações\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Valor\"}},\"Function\":0},\"Name\":\"Sum(movimentacoes.Valor)\",\"NativeReferenceName\":\"Valor movimentado\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"05_valor_medio_por_desc\"},\"Name\":\"movimentacoes.05_valor_medio_por_desc\",\"NativeReferenceName\":\"Valor médio das movimentações\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Name\":\"Variation\",\"Property\":\"DATA\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"calendario.DATA.Variation.Date Hierarchy.Month\",\"NativeReferenceName\":\"DATA Month\"}]},\"columnProperties\":{\"movimentacoes.05_valor_medio_por_desc\":{\"displayName\":\"Valor médio das movimentações\"},\"movimentacoes.04_contagem_movimentacoes\":{\"displayName\":\"Total de movimentações\"},\"Sum(movimentacoes.Valor)\":{\"displayName\":\"Valor movimentado\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"legend\":[{\"properties\":{\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'TopCenter'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Valor movimentado vs total de movimentações'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 510.46,
+          "width": 1270.67,
+          "x": 9.61,
+          "y": 209.95,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"92a7c7850717003ea7d7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":360.89314728889934,\"y\":10.977738320574884,\"z\":3,\"width\":698.458600646577,\"height\":90.5663411447428,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"movimentacoes.Descrição\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"movimentacoes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Descrição\"},\"Name\":\"movimentacoes.Descrição\",\"NativeReferenceName\":\"Descrição\"}]},\"syncGroup\":{\"groupName\":\"Descrição\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.57,
+          "width": 698.46,
+          "x": 360.89,
+          "y": 10.98,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"ad3c787a70c432c01ba2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21.95547664114977,\"y\":10.977738320574884,\"z\":2,\"width\":300.5155865257375,\"height\":119.38290423625187,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"calendario.DATA\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DATA\"},\"Name\":\"calendario.DATA\",\"NativeReferenceName\":\"DATA\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DATA\"}}}]},\"syncGroup\":{\"groupName\":\"Data\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"calendario\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DATA\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 119.38,
+          "width": 300.52,
+          "x": 21.96,
+          "y": 10.98,
+          "z": 2.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Crédito",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "61a218cc4971548154a8",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"01b7c9f470d157a37a30\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":126.24399068661117,\"z\":1,\"width\":378.73197205983354,\"height\":127.61620797668303,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(credito.amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"credito\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(credito.amount)\",\"NativeReferenceName\":\"Sum of amount\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"value\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}},\"selector\":{\"metadata\":\"Sum(credito.amount)\"}}]}}}",
+          "filters": "[]",
+          "height": 127.62,
+          "width": 378.73,
+          "x": 0.00,
+          "y": 126.24,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"18d66ad3aa870d7dd63e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":972.6233270239032,\"y\":301.4737265280825,\"z\":3,\"width\":307.37667297609676,\"height\":418.5262734719175,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"credito.title\"},{\"queryRef\":\"Sum(credito.amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"credito\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"title\"},\"Name\":\"credito.title\",\"NativeReferenceName\":\"title\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"amount\"},\"Name\":\"Sum(credito.amount)\",\"NativeReferenceName\":\"amount\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"title\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Movimentações'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 418.53,
+          "width": 307.38,
+          "x": 972.62,
+          "y": 301.47,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"5c2543044c10b6ab6374\",\"layouts\":[{\"id\":0,\"position\":{\"x\":378.73197205983354,\"y\":30.188780381580933,\"z\":4,\"width\":594.1700866011156,\"height\":78.21638553409605,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"credito.title\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"credito\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"title\"},\"Name\":\"credito.title\",\"NativeReferenceName\":\"title\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2023-01-05T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-12-30T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 78.22,
+          "width": 594.17,
+          "x": 378.73,
+          "y": 30.19,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"b03ac1fcade61c55936a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":301.4737265280825,\"z\":0,\"width\":959.1798857602306,\"height\":418.5262734719175,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(credito.amount)\"}],\"Category\":[{\"queryRef\":\"calendario.DATA.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"calendario.DATA.Variation.Date Hierarchy.Month\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"credito\",\"Type\":0},{\"Name\":\"c1\",\"Entity\":\"calendario\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"amount\"}},\"Function\":0},\"Name\":\"Sum(credito.amount)\",\"NativeReferenceName\":\"Sum of amount\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Name\":\"Variation\",\"Property\":\"DATA\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"calendario.DATA.Variation.Date Hierarchy.Year\",\"NativeReferenceName\":\"DATA Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Name\":\"Variation\",\"Property\":\"DATA\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"calendario.DATA.Variation.Date Hierarchy.Month\",\"NativeReferenceName\":\"DATA Month\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"enableBackground\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"backgroundColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}},\"backgroundTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"90L\"}}},\"labelOrientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Evolução mensal dos gastos'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"credito\"}},\"Property\":\"date\"}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
+          "height": 418.53,
+          "width": 959.18,
+          "x": 0.00,
+          "y": 301.47,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"dd2f0d10e630c9eb9bc5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.605521030503024,\"y\":10.977738320574884,\"z\":2,\"width\":300.5155865257375,\"height\":119.38290423625187,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"credito.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"credito\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"date\"},\"Name\":\"credito.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-11-30T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"credito\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"date\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2024-12-01T00:00:00'\"}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 119.38,
+          "width": 300.52,
+          "x": 9.61,
+          "y": 10.98,
+          "z": 2.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Movimentações",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "d328e4379f749b05dd69",
       "visualContainers": [
         {
-          "config": "{\"name\":\"07ce0c752b2330a9ff0c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":289.53784820516256,\"z\":0,\"width\":735.5084674785172,\"height\":418.5262734719175,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(2025-07-24.Valor)\"}],\"Category\":[{\"queryRef\":\"2025-07-24.Descrição\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"2025-07-24\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"}},\"Function\":0},\"Name\":\"Sum(2025-07-24.Valor)\",\"NativeReferenceName\":\"Sum of Valor\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Descrição\"},\"Name\":\"2025-07-24.Descrição\",\"NativeReferenceName\":\"Descrição\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
-          "filters": "[]",
+          "config": "{\"name\":\"07ce0c752b2330a9ff0c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":301.8878038158093,\"z\":0,\"width\":934.4799745389371,\"height\":418.5262734719175,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(2025-07-24.Valor)\"}],\"Category\":[{\"queryRef\":\"calendario.DATA.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"calendario.DATA.Variation.Date Hierarchy.Month\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"movimentacoes\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"calendario\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"}},\"Function\":0},\"Name\":\"Sum(2025-07-24.Valor)\",\"NativeReferenceName\":\"Valor\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Name\":\"Variation\",\"Property\":\"DATA\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"calendario.DATA.Variation.Date Hierarchy.Year\",\"NativeReferenceName\":\"DATA Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Name\":\"Variation\",\"Property\":\"DATA\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"calendario.DATA.Variation.Date Hierarchy.Month\",\"NativeReferenceName\":\"DATA Month\"}]},\"columnProperties\":{\"Sum(2025-07-24.Valor)\":{\"displayName\":\"Valor\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"enableBackground\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"backgroundColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}},\"backgroundTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"90L\"}}},\"labelOrientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Margem financeira'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"movimentacoes\"}},\"Property\":\"Data\"}},\"type\":\"Categorical\",\"howCreated\":1,\"isHiddenInViewMode\":false},{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"movimentacoes\"}},\"Property\":\"Data\"}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
           "height": 418.53,
-          "width": 735.51,
+          "width": 934.48,
           "x": 0.00,
-          "y": 289.54,
+          "y": 301.89,
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"2a385d27c03ae72ac0b4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":150,\"y\":101.5,\"width\":300,\"height\":150,\"z\":1000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"2025-07-24.Data\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"2025-07-24\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Data\"},\"Name\":\"2025-07-24.Data\",\"NativeReferenceName\":\"Data\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Data\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-12-30T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"2025-07-24\",\"Type\":0}],\"Where\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Data\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Data\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2024-12-31T00:00:00'\"}}}}}}}]}}}}]}}}",
+          "config": "{\"name\":\"0985da2586567c2798cd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":901.5467595772124,\"y\":126.24399068661117,\"z\":2004,\"width\":378.73197205983354,\"height\":127.61620797668303,\"tabOrder\":2004}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"2025-07-24.03_saldo\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"movimentacoes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"03_saldo\"},\"Name\":\"2025-07-24.03_saldo\",\"NativeReferenceName\":\"03_saldo\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"03_saldo\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
           "filters": "[]",
-          "height": 150.00,
-          "width": 300.00,
-          "x": 150.00,
-          "y": 101.50,
+          "height": 127.62,
+          "width": 378.73,
+          "x": 901.55,
+          "y": 126.24,
+          "z": 2004.00
+        },
+        {
+          "config": "{\"name\":\"2a385d27c03ae72ac0b4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.605521030503024,\"y\":10.977738320574884,\"z\":1000,\"width\":300.5155865257375,\"height\":119.38290423625187,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"calendario.DATA\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DATA\"},\"Name\":\"calendario.DATA\",\"NativeReferenceName\":\"DATA\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DATA\"}}}]},\"syncGroup\":{\"groupName\":\"Data\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"calendario\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"DATA\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 119.38,
+          "width": 300.52,
+          "x": 9.61,
+          "y": 10.98,
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"e62f2573c00c98b01848\",\"layouts\":[{\"id\":0,\"position\":{\"x\":735.5084674785172,\"y\":301.8878038158093,\"z\":2000,\"width\":544.7702641585287,\"height\":418.5262734719175,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"2025-07-24.Descrição\"},{\"queryRef\":\"Sum(2025-07-24.Valor)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"2025-07-24\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Descrição\"},\"Name\":\"2025-07-24.Descrição\",\"NativeReferenceName\":\"Descrição\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"}},\"Function\":0},\"Name\":\"Sum(2025-07-24.Valor)\",\"NativeReferenceName\":\"Sum of Valor\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"424.4068412138098D\"}}}},\"selector\":{\"metadata\":\"2025-07-24.Descrição\"}}]}}}",
+          "config": "{\"name\":\"7c68517708930e10bcd2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":360.89314728889934,\"y\":10.977738320574884,\"z\":2005,\"width\":698.458600646577,\"height\":90.5663411447428,\"tabOrder\":2005}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"movimentacoes.Descrição\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"movimentacoes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Descrição\"},\"Name\":\"movimentacoes.Descrição\",\"NativeReferenceName\":\"Descrição\"}]},\"syncGroup\":{\"groupName\":\"Descrição\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 90.57,
+          "width": 698.46,
+          "x": 360.89,
+          "y": 10.98,
+          "z": 2005.00
+        },
+        {
+          "config": "{\"name\":\"81aeeaae317947c9b000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":450.08727114357026,\"y\":126.24399068661117,\"z\":2003,\"width\":378.73197205983354,\"height\":127.61620797668303,\"tabOrder\":2003}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"2025-07-24.01_saida\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"movimentacoes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"01_saida\"},\"Name\":\"2025-07-24.01_saida\",\"NativeReferenceName\":\"01_saida\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"01_saida\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 127.62,
+          "width": 378.73,
+          "x": 450.09,
+          "y": 126.24,
+          "z": 2003.00
+        },
+        {
+          "config": "{\"name\":\"e62f2573c00c98b01848\",\"layouts\":[{\"id\":0,\"position\":{\"x\":972.9020586609491,\"y\":301.8878038158093,\"z\":2000,\"width\":307.37667297609676,\"height\":418.5262734719175,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"2025-07-24.Descrição\"},{\"queryRef\":\"Sum(2025-07-24.Valor)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"movimentacoes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Descrição\"},\"Name\":\"2025-07-24.Descrição\",\"NativeReferenceName\":\"Descrição\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"},\"Name\":\"Sum(2025-07-24.Valor)\",\"NativeReferenceName\":\"Valor1\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"Valor\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(2025-07-24.Valor)\":{\"displayName\":\"Valor\"}},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Movimentações'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
           "filters": "[]",
           "height": 418.53,
-          "width": 544.77,
-          "x": 735.51,
+          "width": 307.38,
+          "x": 972.90,
           "y": 301.89,
           "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"ffdcf44a9d5be11324d0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":126.24399068661117,\"z\":2002,\"width\":378.73197205983354,\"height\":127.61620797668303,\"tabOrder\":2002}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"2025-07-24.01_entrada\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"2\",\"Entity\":\"movimentacoes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"01_entrada\"},\"Name\":\"2025-07-24.01_entrada\",\"NativeReferenceName\":\"01_entrada\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"2\"}},\"Property\":\"01_entrada\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 127.62,
+          "width": 378.73,
+          "x": 0.00,
+          "y": 126.24,
+          "z": 2002.00
         }
       ],
       "width": 1280.00

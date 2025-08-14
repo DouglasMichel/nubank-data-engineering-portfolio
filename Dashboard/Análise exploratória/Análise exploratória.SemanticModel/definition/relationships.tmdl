@@ -1,5 +1,13 @@
-relationship b29d97a9-e9c6-47cb-b24f-9130601e27b8
+relationship 1a011daa-c6ac-4c26-9048-d4bf93354dc9
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 2025-07-24.Data
-	toColumn: LocalDateTable_9021ea6c-9ccd-493f-8a67-fd8bb2461184.Date
+	fromColumn: calendario.DATA
+	toColumn: LocalDateTable_7371e2a2-b5af-4a94-9afc-a87e7eeebe7b.Date
+
+relationship d009a383-168f-4829-a257-5b84af26622b
+	fromColumn: credito.date
+	toColumn: calendario.DATA
+
+relationship 564b4a0d-5d31-4e42-ff6b-e9d1e1deaf10
+	fromColumn: movimentacoes.Data
+	toColumn: calendario.DATA
 

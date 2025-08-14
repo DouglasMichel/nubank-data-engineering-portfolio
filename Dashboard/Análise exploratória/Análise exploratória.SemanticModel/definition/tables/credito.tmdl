@@ -1,0 +1,46 @@
+table credito
+	lineageTag: ed190f0a-4b3b-4d68-9cac-2f14a953e9fe
+
+	column date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: a524a614-42c4-4e65-8c7e-ac365389268e
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column title
+		dataType: string
+		lineageTag: aa345a95-7705-4477-80fd-047c562daac2
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 2bd9a7e4-69e3-4c13-a93e-b3f9889a2d69
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition credito = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\dougl\OneDrive\Área de Trabalho\ESTUDOS\nubank-data-engineering-portfolio\data\bronze\2025-08-09\credito.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"amount", Currency.Type}, {"date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

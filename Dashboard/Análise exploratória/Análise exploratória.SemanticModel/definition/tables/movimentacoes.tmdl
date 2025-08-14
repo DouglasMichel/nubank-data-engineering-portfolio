@@ -1,0 +1,95 @@
+table movimentacoes
+	lineageTag: a6a8b610-66cd-4491-8782-c51af42d153d
+
+	measure 01_entrada =
+			
+			CALCULATE(
+			    SUM('movimentacoes'[Valor]),
+			    'movimentacoes'[Valor] >= 0
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 1aa3f450-2d5c-4b34-bcff-dd0c767cbbe7
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 01_saida =
+			
+			CALCULATE(
+			    SUM('movimentacoes'[Valor]),
+			    'movimentacoes'[Valor] < 0
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: defc61d5-70cb-4649-a4ca-ecd8171b3fdb
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 03_saldo =
+			
+			[01_entrada]+[01_saida]
+		lineageTag: 11a2ca44-a24f-43f2-9620-e4343a8ff133
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 04_contagem_movimentacoes = COUNT(movimentacoes[Descrição])
+		formatString: 0
+		lineageTag: 3d43d6a3-bae6-46d1-9814-7e67535bf63e
+
+	measure 05_valor_medio_por_desc =
+			
+			DIVIDE(SUM(movimentacoes[Valor]), [04_contagem_movimentacoes])
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 7d53538b-06ed-420d-a6c2-4cb851b999ca
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column Data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: cfbe0ed5-ee06-49ee-b2ba-30ccaa4f91de
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Valor
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: b8be2fd3-6951-4ce5-b394-11764d4dd62f
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column Identificador
+		dataType: string
+		lineageTag: 1e08249f-a7a4-4c9c-8e6c-8c37a46c416e
+		summarizeBy: none
+		sourceColumn: Identificador
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descrição
+		dataType: string
+		lineageTag: 3f9cbeaa-5ba8-4901-95c1-3fbf5197f99d
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition movimentacoes = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\dougl\OneDrive\Área de Trabalho\ESTUDOS\nubank-data-engineering-portfolio\data\bronze\2025-08-09\movimentacao.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Data", type date}, {"Valor", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
