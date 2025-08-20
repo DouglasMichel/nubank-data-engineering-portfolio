@@ -1,0 +1,5 @@
+relationship 47315f56-25b0-4291-95f3-ec59ef3d9f5b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: movimentacao.Data
+	toColumn: LocalDateTable_8a60bd19-9b3b-4f75-ae37-8fa09ba70d84.Date
+

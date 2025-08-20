@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Transform File from movimentacao (2)'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from movimentacao (2)\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["movimentacao","Sample File","Parameter1","Transform Sample File","Transform File"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.145.1602.0 (25.07)+10647c9fa319b5e39936cdb21328038c371d1fe4
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table movimentacao
+ref table DateTableTemplate_b02e4180-3180-4711-b874-a22fed7aa5fe
+ref table LocalDateTable_8a60bd19-9b3b-4f75-ae37-8fa09ba70d84
+
+ref cultureInfo en-US
+

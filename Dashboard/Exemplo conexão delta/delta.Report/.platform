@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "delta"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "80bc67a6-3a64-4f32-b98a-54e5efce0276"
+  }
+}

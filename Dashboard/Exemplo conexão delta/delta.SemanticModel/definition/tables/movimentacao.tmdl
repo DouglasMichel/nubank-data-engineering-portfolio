@@ -1,0 +1,72 @@
+table movimentacao
+	lineageTag: 755bd6c3-2632-4128-b85f-156666690ac9
+
+	column 'Source.Name'
+		dataType: string
+		lineageTag: 3f9c3709-072a-40c0-98df-1b2195e3fa6e
+		summarizeBy: none
+		sourceColumn: Source.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8d94479a-3856-4426-9997-5b9d21ac405f
+		summarizeBy: none
+		sourceColumn: Data
+
+		variation Variation
+			isDefault
+			relationship: 47315f56-25b0-4291-95f3-ec59ef3d9f5b
+			defaultHierarchy: LocalDateTable_8a60bd19-9b3b-4f75-ae37-8fa09ba70d84.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Valor
+		dataType: double
+		lineageTag: c515181d-ffbd-4cf6-bf5c-c9b0a777a810
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Identificador
+		dataType: string
+		lineageTag: a05ef333-5848-4d95-91a0-93e4e94a3b23
+		summarizeBy: none
+		sourceColumn: Identificador
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descrição
+		dataType: string
+		lineageTag: 1887cb61-b32c-4a4d-b64a-3313f64bc18c
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition movimentacao = m
+		mode: import
+		source =
+				let
+				    Source = Folder.Files("C:\Users\dougl\OneDrive\Área de Trabalho\ESTUDOS\nubank-data-engineering-portfolio\data\bronze\2025-08-14\movimentacao"),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Extension] = ".parquet")),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Rows", "Transform File", each #"Transform File"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File", Table.ColumnNames(#"Transform File"(#"Sample File"))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"Data", type date}, {"Valor", type number}, {"Identificador", type text}, {"Descrição", type text}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Changed Type", each true)
+				in
+				    #"Filtered Rows1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

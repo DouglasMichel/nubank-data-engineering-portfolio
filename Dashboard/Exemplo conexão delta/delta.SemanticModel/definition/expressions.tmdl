@@ -1,0 +1,47 @@
+expression 'Sample File' =
+		let
+		    Source = Folder.Files("C:\Users\dougl\OneDrive\Área de Trabalho\ESTUDOS\nubank-data-engineering-portfolio\data\bronze\2025-08-14\movimentacao"),
+		    Navigation1 = Source{0}[Content]
+		in
+		    Navigation1
+	lineageTag: a0da3059-5c88-48cb-8e95-09f1185786ce
+	queryGroup: 'Transform File from movimentacao (2)\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression Parameter1 = #"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 298bb279-aff1-4de9-b0e2-089bc06f24e6
+	queryGroup: 'Transform File from movimentacao (2)\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transform Sample File' =
+		let
+		    Source = Parquet.Document(Parameter1, [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+		in
+		    Source
+	lineageTag: 2579f8f9-b7f4-4ceb-9b70-53b27fdabb23
+	queryGroup: 'Transform File from movimentacao (2)'
+
+	annotation PBI_ResultType = Table
+
+expression 'Transform File' =
+		let
+		    Source = (Parameter1) => let
+		        Source = Parquet.Document(Parameter1, [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+		    in
+		        Source
+		in
+		    Source
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transform Sample File""}" ]
+	lineageTag: 50c20ffc-5aaf-49e7-a919-da35717439fd
+	queryGroup: 'Transform File from movimentacao (2)\Helper Queries'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
